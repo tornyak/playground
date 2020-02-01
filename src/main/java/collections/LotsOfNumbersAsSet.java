@@ -65,6 +65,13 @@ public class LotsOfNumbersAsSet {
         }
 
         // Addd also for ConcurrentSkipListSet
+        // Set.of(1,2,3,3,3); This throws IllegalArgumentException
+        System.out.println(Set.of(1, 2, 3, 4, 5)); // iteration order randomized to prevent people to rely on the order
+        System.out.println(new HashSet<>(Set.of(1, 2, 3, 4, 5))); // will keep order
+
+        // java -XX:+UseParallelGC - improved performance when searching in HashMap in Java11
+        // -verbose
+        //
     }
 
 }
