@@ -8,7 +8,7 @@ import java.util.Set;
 /*
 The number of syllables in the given word, according to
 	 * this rule: Each contiguous sequence of one or more vowels is a syllable,
-	 *       with the following exception: a lone "e" at the end of a word
+	 *       with the following exception: alone "e" at the end of a word
 	 *       is not considered a syllable unless the word has no other syllables.
 	 *       You should consider y a vowel.
  */

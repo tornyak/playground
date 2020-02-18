@@ -9,7 +9,6 @@ public class SyllablesTest {
     @Test
     public void getNumbSyllables() {
 
-
         assertEquals("Mrs",0,Syllables.getNumbSyllables("Mrs"));
         assertEquals("1",0,Syllables.getNumbSyllables("t"));
 
@@ -32,15 +31,5 @@ public class SyllablesTest {
         assertEquals("a",1,Syllables.getNumbSyllables("a"));
         assertEquals("test",1,Syllables.getNumbSyllables("test"));
         assertEquals("How",1,Syllables.getNumbSyllables("How"));
-
-/*
-16
-
-"This is a test.  How many???  "
-		        + "Senteeeeeeeeeences are here... there should be 5!  Right?"
- */
-
-
-
     }
 }
