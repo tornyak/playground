@@ -59,4 +59,55 @@ public class BinaryTree<K extends Comparable<K>,V> {
     public void inOderTraversal() {
         inOrderTraversal(root);
     }
+
+    public V get (K key) {
+        return get (root,key);
+    }
+
+    private V get(TreeNode<K,V> node, K key) {
+        if (node==null) return null;
+        int compare=key.compareTo(node.getKey());
+        if (compare<0) return get(node.getLeft(),key);
+        else if (compare>0) return get(node.getRight(),key);
+        else return node.getValue();
+    }
+
+    public K min () {
+        return min(root).getKey();
+    }
+
+    private TreeNode<K,V> min(TreeNode<K,V> node) {
+        if (node.getLeft()==null) return node;
+        return min(node.getLeft());
+    }
+
+    public void deleteMin() {
+        root=deleteMin(root);
+    }
+
+    private TreeNode<K,V> deleteMin (TreeNode<K,V> node) {
+        if (node.getLeft()==null) return node.getRight();
+        node.setLeft(deleteMin(node.getLeft()));
+        return node;
+    }
+
+    public void delete (K key){
+        root=delete(root,key);
+    }
+
+    private TreeNode<K,V> delete(TreeNode<K,V> node, K key) {
+        if (node==null) return null;
+        int compare=key.compareTo(node.getKey());
+        if (compare<0) node.setLeft(delete(node.getLeft(),key));
+        else if (compare>0) node.setRight(delete(node.getRight(),key));
+        else {
+            if (node.getLeft()==null) return node.getRight();
+            if (node.getRight()==null) return node.getLeft();
+            TreeNode<K,V> temp = node;
+            node=min(temp.getRight());
+            node.setRight(deleteMin(temp.getRight()));
+            node.setLeft(temp.getLeft());
+        }
+        return node;
+    }
 }
