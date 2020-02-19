@@ -1,5 +1,8 @@
 package trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree<K extends Comparable<K>,V> {
     TreeNode<K,V> root;
 
@@ -59,6 +62,22 @@ public class BinaryTree<K extends Comparable<K>,V> {
     public void inOderTraversal() {
         inOrderTraversal(root);
     }
+
+    public void levelOrderTraversal() {
+        Queue<TreeNode<K,V>> queue = new LinkedList<>();
+        TreeNode<K,V> curr;
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            curr=queue.remove();
+            if (curr!=null) {
+                curr.visit();
+                queue.add(curr.getLeft());
+                queue.add(curr.getRight());
+            }
+        }
+    }
+
+
 
     public V get (K key) {
         return get (root,key);

@@ -27,6 +27,10 @@ public class BinaryTreeTest {
 
         System.out.println("In-order traversal: ");
         tree.inOderTraversal();
+        System.out.println("");
+
+        System.out.println("level-order traversal: ");
+        tree.levelOrderTraversal();
     }
 
     @Test
